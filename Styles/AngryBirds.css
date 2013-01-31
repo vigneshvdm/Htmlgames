@@ -1,0 +1,102 @@
+*
+{
+background: white url[../Images/space.jpeg];
+}
+body
+{
+
+background: white url('../Images/forest2.jpg') no-repeat;
+
+}
+
+
+#Main
+{
+width:1200px;
+height:800px;
+}
+#Bird
+{
+    width:90%;
+    height:100%;
+    position:absolute;
+    float:left;
+    
+    
+}
+#Pigs
+{
+    width:100px;
+    height:100px;
+    top:700px;
+    left:835px;
+    position:absolute;
+    }
+#Bird1
+{
+    width:160px;
+    height:80px;
+    position:absolute;
+    top:300px;
+    left:210px;
+}
+#Aimer
+{
+    position:absolute;
+    background:none url('../Images/line.png') repeat;
+    width:10px;
+    height:5px;
+    top:300px;
+    left:250px;
+}
+#Pig
+{ width:5%;height:100%;float:right}
+#Pig img
+{
+    width:50px;
+    height:50px;
+    top:700px;
+    left:500px;
+    position:relative;
+}
+#ThumbsUp
+{
+    position:absolute;
+    top:300px;
+    left:500px;
+    width:100px;
+    height:100px;
+    }
+    #ThumbsDown
+    {
+    position:absolute;
+    top:300px;
+    left:500px;
+    width:100px;
+    height:100px;
+    }
+    #Target
+    { 
+        position:absolute;
+    top:300px;
+    left:500px;
+    width:100px;
+    height:100px;
+        }
+      #Hitpig
+    { 
+        position:absolute;
+    top:300px;
+    left:500px;
+    width:150px;
+    height:150px;
+        }
+      #killing
+    { 
+        position:absolute;
+    top:300px;
+    left:500px;
+    width:150px;
+    height:150px;
+        }
+          
