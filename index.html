@@ -3,7 +3,7 @@
 <head>
 <title>Angry Birds</title>
 
-<script src="JS/jquery.min.js" type="text/javascript"></script>
+<script src="http://code.jquery.com/jquery-1.8.3.min.js" type="text/javascript"></script>
 <script src="JS/jquery-ui.min.js" type="text/javascript"></script>
 
 <script type="text/javascript">
@@ -15,40 +15,40 @@
         hiding();
         flyingpigs();
         checkinghit();
-        
+
     });
-    function checkinghit() {setTimeout(checkinghit, 20);positionchecker();}
+    function checkinghit() { setTimeout(checkinghit, 20); positionchecker(); }
     function flyingpigs() {
-       var topposition = Math.floor(Math.random() * (600 - 10 + 1)) + 10;
-        var leftposition =Math.floor(Math.random() * (1024 - 400 + 1)) + 400;
-        
+        var topposition = Math.floor(Math.random() * (600 - 10 + 1)) + 10;
+        var leftposition = Math.floor(Math.random() * (1024 - 400 + 1)) + 400;
+
         setTimeout(flyingpigs, 3000);
-        $("#Pigs").animate({ top: topposition, left: leftposition }, 2000 );
-        $("#Pigs").animate({ top: topposition+200,left:leftposition+200 }, 1000);
+        $("#Pigs").animate({ top: topposition, left: leftposition }, 2000);
+        $("#Pigs").animate({ top: topposition + 200, left: leftposition + 200 }, 1000);
     };
     function hitpig() {
-    $('#Hitpig').show(1000);
-    var imagesrc = "Images/Kuttpjp.png";
-    var imagesrc2 = "Images/Kuttyjp.png";
-    setInterval(jQuery('#Pigs').attr('src', imagesrc), 100);
-    setInterval(jQuery('#Pigs').attr('src', imagesrc2), 100);
-    $('#Pigs').animate({ left: 500, top: 500 }, 500);
-    $("#Pigs").hide();
-    $('#Bird1').hide(500); $('#Target').hide(500);
+        $('#Hitpig').show(1000);
+        var imagesrc = "https://raw.githubusercontent.com/vigneshvdm/Htmlgames/master/Images/Kuttyjp.png";
+        var imagesrc2 = "https://raw.githubusercontent.com/vigneshvdm/Htmlgames/master/Images/Kuttyjp.png";
+        setInterval(jQuery('#Pigs').attr('src', imagesrc), 100);
+        setInterval(jQuery('#Pigs').attr('src', imagesrc2), 100);
+        $('#Pigs').animate({ left: 500, top: 500 }, 500);
+        $("#Pigs").hide();
+        $('#Bird1').hide(500); $('#Target').hide(500);
     }
     function aimer() {
-    birdposition = $('#Bird1').position();
-    var temptop = startposition.top - (2 * (birdposition.top - startposition.top));
-    var elementn = document.getElementById('Target');
+        birdposition = $('#Bird1').position();
+        var temptop = startposition.top - (2 * (birdposition.top - startposition.top));
+        var elementn = document.getElementById('Target');
         var templeft = startposition.left + (3 * (startposition.left - birdposition.left));
         $("#Target").css("left", templeft);
         $("#Target").css("top", temptop);
         if (temptop > 400)
-            jQuery('#Bird1').attr('src', 'Images/Speard.png');
-            else if(temptop<300)
-                jQuery('#Bird1').attr('src', 'Images/Spear.png');
-                else
-                    jQuery('#Bird1').attr('src', 'Images/Speards.png');
+            jQuery('#Bird1').attr('src', 'https://raw.githubusercontent.com/vigneshvdm/Htmlgames/master/Images/Speard.png');
+        else if (temptop < 300)
+            jQuery('#Bird1').attr('src', 'https://raw.githubusercontent.com/vigneshvdm/Htmlgames/master/Images/Spear.png');
+        else
+            jQuery('#Bird1').attr('src', 'https://raw.githubusercontent.com/vigneshvdm/Htmlgames/master/Images/Speards.png');
     }
     var arc_params = {
         center: [285, 185],
@@ -57,56 +57,56 @@
         end: 200,
         dir: -1
     };
-   $('#Bird1').live('click', function () { alert("Hello"); });
+    $('#Bird1').live('click', function () { alert("Hello"); });
     $(document).ready(function () {
-        $('#Bird1').draggable({ grid: [50, 20], refreshPositions: true, stop: function (event, ui) { endposition = $(this).position(); var newleft = startposition.left + Math.abs(startposition.left - endposition.left); birdfly(); }, start: function (event, ui) { startposition = $(this).position(); var startleft = startposition.left; } ,drag:aimer});
+        $('#Bird1').draggable({ grid: [50, 20], refreshPositions: true, stop: function (event, ui) { endposition = $(this).position(); var newleft = startposition.left + Math.abs(startposition.left - endposition.left); birdfly(); }, start: function (event, ui) { startposition = $(this).position(); var startleft = startposition.left; }, drag: aimer });
     });
     function birdfly() {
         var newtop = startposition.top - (2 * (endposition.top - startposition.top));
         var newleft = startposition.left + (3 * (startposition.left - endposition.left));
         pigposition = $('#Pigs').position();
         birdposition = $('#Bird1').position();
-     var ops1 = {
+        var ops1 = {
             top: { start: endposition.top, end: newtop },
             left: { start: endposition.left, end: newleft }
         };
-        
+
 
         difference = endposition.top - startposition.top;
         var halfway = (endposition.left + startposition.left) / 1.5;
 
-        $('#Bird1').animate({ top: newtop, left:newleft }, 800,checkhit);
+        $('#Bird1').animate({ top: newtop, left: newleft }, 800, checkhit);
 
     }
     function positionchecker() {
         pigposition = $('#Pigs').position();
         birdposition = $('#Bird1').position();
-        if ((Math.abs(pigposition.left - birdposition.left) < 50) && (Math.abs(pigposition.top - birdposition.top) < 50)) {hitpig();}
-     }
+        if ((Math.abs(pigposition.left - birdposition.left) < 50) && (Math.abs(pigposition.top - birdposition.top) < 50)) { hitpig(); }
+    }
     function checkhit() {
         pigposition = $('#Pigs').position();
-       birdposition = $('#Bird1').position();
-       if (((Math.abs(pigposition.top - birdposition.top)) < 50)) {
+        birdposition = $('#Bird1').position();
+        if (((Math.abs(pigposition.top - birdposition.top)) < 50)) {
 
-           if ((birdposition.left > pigposition.left)) {
-               hitpig();
+            if ((birdposition.left > pigposition.left)) {
+                hitpig();
 
-           }
-           else if (Math.abs(pigposition.left - birdposition.left) < 50) {hitpig(); }
-           else if (Math.abs(pigposition.left-birdposition.left)>50) {nohit(); }
-           
-            
-           }
-        else {nohit();}
+            }
+            else if (Math.abs(pigposition.left - birdposition.left) < 50) { hitpig(); }
+            else if (Math.abs(pigposition.left - birdposition.left) > 50) { nohit(); }
+
+
+        }
+        else { nohit(); }
         $('#Bird1').hide(500);
-        $('#Bird1').animate({top:"300px",left:"250px"},1);
+        $('#Bird1').animate({ top: "300px", left: "250px" }, 1);
         $('#Bird1').show(100);
     }
     function nohit() {
-        
+
     }
-    function hiding() { $('#ThumbsUp').hide(); $('#ThumbsDown').hide(); $('#Hitpig').hide();  }
-    $('#Hitpig').live('click', function () { hiding();  restart(); });
+    function hiding() { $('#ThumbsUp').hide(); $('#ThumbsDown').hide(); $('#Hitpig').hide(); }
+    $('#Hitpig').live('click', function () { hiding(); restart(); });
     function restart() { $("#Pigs").show(); flyingpigs(); $('#Bird1').show(500); $('#Target').show(500); };
 </script>
 <link href="Styles/AngryBirds.css" rel="Stylesheet" type="text/css" />
@@ -122,10 +122,10 @@
 
 <div id="Pig">
 </div>
-<img id="ThumbsUp" src="Images/ThumbsUp.png" alt="PIG"  />
-<img id="ThumbsDown" src="Images/Thumbsdown.png" alt="PIG"  />
-<img id="Target" src="Images/target.png" alt="Target" />
-<img id="Hitpig" src="Images/Killing2.png" alt="Hitpig" />
+<img id="ThumbsUp" src="https://raw.githubusercontent.com/vigneshvdm/Htmlgames/master/Images/ThumbsUp.png" alt="PIG"  />
+<img id="ThumbsDown" src="https://raw.githubusercontent.com/vigneshvdm/Htmlgames/master/Images/Thumbsdown.png" alt="PIG"  />
+<img id="Target" src="https://raw.githubusercontent.com/vigneshvdm/Htmlgames/master/Images/target.png" alt="Target" />
+<img id="Hitpig" src="https://raw.githubusercontent.com/vigneshvdm/Htmlgames/master/Images/Killing2.png" alt="Hitpig" />
 </div>
 
 </body>
